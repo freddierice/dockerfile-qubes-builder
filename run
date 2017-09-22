@@ -3,4 +3,5 @@ if [ ! -d build ]; then
 	mkdir build
 fi
 
-docker run --rm -it -v $(pwd)/build/:/build -w /build freddierice/qubes-builder
+# docker run --rm -it -v $(pwd)/build/:/build -w /build freddierice/qubes-builder
+docker run --rm -it -w /build --cap-add=SYS_ADMIN --security-opt apparmor:unconfined freddierice/qubes-builder 
