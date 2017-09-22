@@ -17,7 +17,9 @@ RUN useradd -G wheel -p "" user
 
 # make working directory
 RUN mkdir -p /build \
-	&& chown user:user /build
+	&& chown user:user /build \
+	&& mkdir -p /shared \
+	&& chown user:user /shared
 
 USER user
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
