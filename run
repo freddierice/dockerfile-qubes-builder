@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ ! -d build ]; then
+	mkdir build
+fi
+
+docker run --rm -it -v $(pwd)/build/:/build -w /build freddierice/qubes-builder
