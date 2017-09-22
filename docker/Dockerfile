@@ -21,4 +21,4 @@ RUN mkdir -p /build \
 
 USER user
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
-CMD ["bash", "-c", "if [ ! -d qubes-builder ]; then git clone https://www.github.com/QubesOS/qubes-builder.git; fi && bash"]
+CMD ["bash", "-c", "if [ ! -d qubes-builder ]; then git clone https://github.com/QubesOS/qubes-builder.git ; fi && bash"]
