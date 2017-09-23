@@ -10,7 +10,7 @@ RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/
 	&& chmod +x /usr/local/bin/dumb-init
 
 # qubes requirements
-RUN dnf install -y git createrepo rpm-build rpm-sign make python2-sh rpmdevtools rpm-sign dialog perl-open gpg hostname which sudo 
+RUN dnf install -y git createrepo rpm-build rpm-sign make python2-sh rpmdevtools rpm-sign dialog perl-open gpg hostname which sudo PyYAML libyaml
 
 # add non-root user
 RUN useradd -G wheel -p "" user
