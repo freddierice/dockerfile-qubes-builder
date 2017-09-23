@@ -6,4 +6,4 @@ if [ ! -d shared ]; then
 	mkdir shared
 fi
 
-docker run --rm -it -v $(pwd)/shared:/shared -w /build --cap-add=SYS_ADMIN --security-opt apparmor:unconfined freddierice/qubes-builder 
+docker run --rm -it -v $(pwd)/shared:/shared -w /build --cap-add=SYS_ADMIN --security-opt apparmor:unconfined --privileged freddierice/qubes-builder 
