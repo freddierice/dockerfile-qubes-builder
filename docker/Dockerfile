@@ -21,8 +21,15 @@ RUN mkdir -p /build \
 	&& mkdir -p /shared \
 	&& chown user:user /shared
 
-# Set the locale
+# set the locale
 RUN echo "export LANG=en_US.utf-8" > /opt/export_LANG.sh
+
+# make loop devices
+RUN /usr/bin/mknod /dev/loop0 -m0660 b 7 0 \
+	&& /usr/bin/mknod /dev/loop1 -m0660 b 7 1 \
+	&& /usr/bin/mknod /dev/loop2 -m0660 b 7 2 \
+	&& /usr/bin/mknod /dev/loop3 -m0660 b 7 3 \
+	&& /usr/bin/mknod /dev/loop4 -m0660 b 7 4
 
 USER user
 ENV BASH_ENV=/opt/export_LANG.sh \
