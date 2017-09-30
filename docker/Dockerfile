@@ -21,6 +21,14 @@ RUN mkdir -p /build \
 	&& mkdir -p /shared \
 	&& chown user:user /shared
 
+# Set the locale
+RUN echo "export LANG=en_US.utf-8" > /opt/export_LANG.sh
+
 USER user
+ENV BASH_ENV=/opt/export_LANG.sh \
+	ENV=/opt/export_LANG.sh \
+	PROMPT_COMMAND="source /opt/export_LANG.sh"
+ENV LANG=en_US.utf-8
+
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 CMD ["bash", "-c", "if [ ! -d qubes-builder ]; then git clone https://github.com/QubesOS/qubes-builder.git ; fi && bash"]
